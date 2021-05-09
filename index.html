@@ -9,7 +9,7 @@
 <body>
     <script>
         function computerPlay () {
-            let choices = ["Rock", "Paper", "Scissors"];
+            let choices = ["rock", "paper", "scissors"];
             let x = Math.floor(Math.random() * (2 - 0 + 1 ) + 0 ); //randomly picks 0,1,2
             return choices[x];
         }
@@ -20,17 +20,17 @@
         const computerSelection = computerPlay();
         let result = "";
         function playRound (playerSelection, computerSelection) {
-            if (playerSelection === "Rock" && computerSelection === "Paper") {
+            if (playerSelection.toLowerCase() === "rock" && computerSelection === "paper") {
                 result = "You lose! Paper beats Rock";
-            } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+            } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "scissors") {
                 result = "You lose! Scissors beats Paper";
-            } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+            } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "rock") {
                 result = "You lose! Rock beats Scissors";
-            } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+            } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
                 result = "You win! Rock beats Scissors";
-            } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+            } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
                 result = "You win! Paper beats Rock";
-            } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+            } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
                 result = "You win! Scissors beats Rock"; 
             } else {
                 result = "Tie, try again";
