@@ -14,6 +14,30 @@
             return choices[x];
         }
         // console.log(computerPlay());
+
+        //A single round
+        const playerSelection = prompt("Rock Paper Scissors");
+        const computerSelection = computerPlay();
+        let result = "";
+        function playRound (playerSelection, computerSelection) {
+            if (playerSelection === "Rock" && computerSelection === "Paper") {
+                result = "You lose! Paper beats Rock";
+            } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+                result = "You lose! Scissors beats Paper";
+            } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+                result = "You lose! Rock beats Scissors";
+            } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+                result = "You win! Rock beats Scissors";
+            } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+                result = "You win! Paper beats Rock";
+            } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+                result = "You win! Scissors beats Rock"; 
+            } else {
+                result = "Tie, try again";
+            }
+            return result;
+        }
+        console.log(playRound(playerSelection, computerSelection));
     </script>
 </body>
 </html>
