@@ -1,0 +1,1 @@
+My first JavaScript program. Trying to recreate the classic game rock paper scissors.
