@@ -1,9 +1,6 @@
 :root {
     box-sizing: border-box;
 }
-html {
-    
-}
 body {
     margin: 0;
     padding: 0;
@@ -22,6 +19,16 @@ main {
     width: 50%;
     margin: 0px auto;
     text-align: center;
+}
+@media screen and (min-width: 740px) {
+    main {
+        width: 40%;
+    }
+}
+@media screen and (min-width: 1024px) {
+    main {
+        width: 20%;
+    }
 }
 #options {
     margin-bottom: 2em;
