@@ -1,0 +1,46 @@
+:root {
+    box-sizing: border-box;
+}
+html {
+    
+}
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    max-height: 100%;
+    background: #EFEFEF;
+    color: #a9a9a9;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+header {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #FF3B3F;
+}
+main {
+    width: 50%;
+    margin: 0px auto;
+    text-align: center;
+}
+#options {
+    margin-bottom: 2em;
+}
+#buttons {
+    display: flex;
+    justify-content: space-between;
+}
+#buttons > * {
+    padding: 0.5em;
+    background: #FF3B3F;
+    color: #EFEFEF;
+    border: none;
+    border-radius: 5px;
+}
+#buttons > *:hover {
+    cursor: pointer;
+}
+#scores {
+    display: flex;
+    justify-content: space-around;
+}
