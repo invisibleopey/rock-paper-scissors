@@ -47,7 +47,20 @@ main {
 #buttons > *:hover {
     cursor: pointer;
 }
+/* Hides reload button until the game ends */
+#reloadBtn {
+    display: none;
+}
 #scores {
     display: flex;
     justify-content: space-around;
+}
+#finalResult {
+    padding: 0.5em;
+    font-size: 1.5em;
+    color: #FF3B3F;
+}
+/* Hides the choices button when game ends */
+.gameOver {
+    display: none;
 }

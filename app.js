@@ -30,18 +30,17 @@ function gamePlay (e, computerSelection) {
     } else {
         result = "Tie, try again";
     }
-    // console.log("Player's Selection is: " + playerSelection.toLowerCase());
-    // console.log("Computer's Selection is: " + computerSelection);
-    // console.log(result);
+
     resultParagraph.textContent += result + "\r\n";
     resultParagraph.setAttribute('style', 'white-space: pre;');
 
     countScore();
     gameOver();
+    reloadGame();
 
 }
 
-
+// Keeping Score
 const pScore = document.querySelector("#pScore");
 const cScore = document.querySelector("#cScore");
 let pScoreText = pScore.textContent;
@@ -60,12 +59,27 @@ function countScore () {
     cScore.textContent = cScoreNum;
 }
 
+
+//Final Result Message determination
 const finalResult = document.querySelector("#finalResult");
 
 function gameOver () {
     if (pScoreNum === 5 && cScoreNum < 5 ) {
-        finalResult.textContent = "Joe, we did it. Congratulation!"
-    } else if (cScoreNum === 5 && pScore < 5) {
+        finalResult.textContent = "Joe, we did it. Congratulation, you won!"
+    } else if (cScoreNum === 5 && pScoreNum < 5) {
         finalResult.textContent = "Aww, you lost! Better luck next time"
-    } else return
+    }
+}
+
+// Reloading the game once the gamePlay is over
+const reloadBtn = document.querySelector("#reloadBtn");
+reloadBtn.addEventListener('click',() => {
+    window.location.reload();
+})
+function reloadGame () {
+    if (pScoreNum === 5 || cScoreNum === 5 ) {
+        buttons.forEach(button => button.classList.add("gameOver"))
+        //Remobing the id that made is invisible better than adding a new class
+        reloadBtn.removeAttribute("id");
+    }
 }
