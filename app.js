@@ -1,9 +1,10 @@
 const buttons = document.querySelectorAll(".button");
-buttons.forEach((button) => button.addEventListener("click", gamePlay));
-
 let playerSelection;
 let computerSelection;
 let result = "";
+const resultParagraph = document.querySelector("#roundResult");
+
+buttons.forEach((button) => button.addEventListener("click", gamePlay));
 
 function gamePlay (e, computerSelection) {
     // Assign id of the buttons to playerSelection variable
@@ -29,10 +30,42 @@ function gamePlay (e, computerSelection) {
     } else {
         result = "Tie, try again";
     }
-    console.log("Player's Selection is: " + playerSelection.toLowerCase());
-    console.log("Computer's Selection is: " + computerSelection);
-    console.log(result);
-    return result;
+    // console.log("Player's Selection is: " + playerSelection.toLowerCase());
+    // console.log("Computer's Selection is: " + computerSelection);
+    // console.log(result);
+    resultParagraph.textContent += result + "\r\n";
+    resultParagraph.setAttribute('style', 'white-space: pre;');
+
+    countScore();
+    gameOver();
 
 }
 
+
+const pScore = document.querySelector("#pScore");
+const cScore = document.querySelector("#cScore");
+let pScoreText = pScore.textContent;
+let cScoreText = cScore.textContent;
+let pScoreNum = Number(pScoreText);
+let cScoreNum = Number(cScoreText);
+
+function countScore () {
+    if (result === "You win! Rock beats Scissors" || result === 
+        "You win! Paper beats Rock" ||result === "You win! Scissors beats Paper") 
+        { pScoreNum += 1;
+    } else if (result === "You lose! Paper beats Rock" || result === 
+        "You lose! Scissors beats Paper" || result === "You lose! Rock beats Scissors") 
+        { cScoreNum += 1; }
+    pScore.textContent = pScoreNum;
+    cScore.textContent = cScoreNum;
+}
+
+const finalResult = document.querySelector("#finalResult");
+
+function gameOver () {
+    if (pScoreNum === 5 && cScoreNum < 5 ) {
+        finalResult.textContent = "Joe, we did it. Congratulation!"
+    } else if (cScoreNum === 5 && pScore < 5) {
+        finalResult.textContent = "Aww, you lost! Better luck next time"
+    } else return
+}
